@@ -1,4 +1,4 @@
-'use strict';
+'use strict()';
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
@@ -18,23 +18,23 @@ var T = new Twit({
   access_token_secret: 'WvnS6UIGv9dXPnNxZ4kijxvFkHcCYDBlHVi5ZxV9MCZ4I'
 });
 
-console.log(T);
-var stream = T.stream('statuses/filter', { track: 'angular' });
+// console.log(T);
+// var stream = T.stream('statuses/filter', { track: 'angular' });
+//
+// var userObj = {};
+// stream.on('tweet', function (tweet) {
+//   var user = tweet.user.name;
+//   if(userObj[user]){
+//     userObj[user] += 1;
+//   }else{
+//     userObj[user] = 1;
+//   }
+//   console.log("USEROBJ:::", userObj);
+//   console.log(tweet);
+//   console.log('**********', tweet.user.location);
+//   console.log('##########', tweet.text);
+// });
 
-var userObj = {};
-stream.on('tweet', function (tweet) {
-  var user = tweet.user.name;
-  if(userObj[user]){
-    userObj[user] += 1;
-  }else{
-    userObj[user] = 1;
-  }
-  console.log("USEROBJ:::", userObj);
-  console.log(tweet);
-  console.log('**********', tweet.user.location);
-  console.log('##########', tweet.text);
-});
-
-var afterOneWeek = function(){
-  userArray
-}
+// var afterOneWeek = function(){
+//   userArray
+// }
