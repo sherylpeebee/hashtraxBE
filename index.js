@@ -1,6 +1,7 @@
 'use strict';
 var mongoose = require('mongoose');
 var Twit = require('twit');
+var speak = require('speakeasy-nlp');
 
 mongoose.connect(process.env.MONGOLAB_URI);
 var tweetSchema = new mongoose.Schema({}, { strict: false });
@@ -42,6 +43,7 @@ User.find({}, function(err, users) {
       stream.on('tweet', function (tweet) {
         console.log('##########', tweet.text);
         var mongoTweet = new Tweet(tweet);
+        mongoTweet.sentiment = speak.sentiment.analyze(tweet.text); 
         mongoTweet.save(function(err, savedTweet) {
           if (err) {
             console.error(err);
